@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@import "@fontsource/jolly-lodger";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+
+@theme{
+    --font-heading: "Jolly Lodger", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --color-orange: #EB7600;
+}
+
+@layer base {
+    body {
+        @apply bg-black text-white font-body font-normal text-xl overflow-x-hidden;
+    }
+}
+
+@layer components {
+    .container {
+        @apply w-full max-w-[1600px] mx-auto px-12;
+    }
+}
