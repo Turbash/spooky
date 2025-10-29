@@ -6,6 +6,7 @@ import { Canvas } from '@react-three/fiber'
 import {Center, OrbitControls} from '@react-three/drei'
 import About from './sections/About.jsx'
 import CTA from './sections/CTA.jsx'
+import CameraAnimation from './components/CameraAnimation.jsx'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Center>
             <Pumpkin />
           </Center>
+          <CameraAnimation />
           <OrbitControls enableZoom={false} />
         </Canvas>
       </figure>
