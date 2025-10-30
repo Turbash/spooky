@@ -1,5 +1,5 @@
 import React from 'react'
-import bgImg from '../assets/halloween-bg.jpg'
+import bgImg from '../assets/halloween-bg-extended.jpg'
 
 const About = () => {
   return (
