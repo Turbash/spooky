@@ -7,6 +7,12 @@ import {Center, OrbitControls} from '@react-three/drei'
 import About from './sections/About.jsx'
 import CTA from './sections/CTA.jsx'
 import CameraAnimation from './components/CameraAnimation.jsx'
+import History from './sections/History.jsx'
+import Traditions from './sections/Traditions.jsx'
+import Activities from './sections/Activities.jsx'
+import Safety from './sections/Safety.jsx'
+import FAQ from './sections/FAQ.jsx'
+import Footer from './components/Footer.jsx'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
@@ -45,7 +51,13 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
+      <History />
+      <Traditions />
+      <Activities />
+      <Safety />
+      <FAQ />
       <CTA />
+      <Footer />
     </>
   )
 }
