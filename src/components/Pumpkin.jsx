@@ -7,15 +7,40 @@ Source: https://sketchfab.com/3d-models/halloween-pumpkin-4484260f38114ad0b78da5
 Title: Halloween pumpkin
 */
 
-import React from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useThree } from '@react-three/fiber';
+import { Box3, Vector3 } from 'three';
 
 export function Pumpkin(props) {
+  const {size,viewport}=useThree();
+  const group=useRef();
   const { nodes, materials } = useGLTF('/model/halloween_pumpkin.glb')
+
+  const getResponsiveScale=()=>{
+    if(size.width<380) return 0.0028;
+    if(size.width<480) return 0.0038;
+    if(size.width<768) return 0.0048;
+    if(size.width<1200) return 0.0065;
+    return 0.0068;
+  }
+
+  useLayoutEffect(()=>{
+    if(!group.current) return;
+    const box=new Box3().setFromObject(group.current);
+    const center=new Vector3();
+    box.getCenter(center);
+    group.current.position.x+= (group.current.position.x - center.x);
+    group.current.position.y+= (group.current.position.y - center.y);
+    group.current.position.z+= (group.current.position.z - center.z);
+  },[nodes])
+
+  const scale=getResponsiveScale();
+
   return (
-    <group {...props} dispose={null} scale={[0.0068, 0.0068, 0.0068]} position={[0, -7, 0]}>
+    <group ref={group} {...props} dispose={null} scale={[scale, scale, scale]} position={[0, -7, 0]}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <mesh geometry={nodes.Pumpkin_Mat1_0.geometry} material={materials['Mat.1']} rotation={[Math.PI / 2, 0, 0]} />
+        <mesh geometry={nodes.Pumpkin_Mat1_0.geometry} material={materials['Mat.1']} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow/>
       </group>
     </group>
   )

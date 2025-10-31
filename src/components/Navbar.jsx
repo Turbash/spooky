@@ -8,6 +8,8 @@ const NAV_ITEMS = [
 
 const Navbar = () => {
   const [isOpenOverlay, setIsOpenOverlay] = useState(false);
+  const [overlayMounted, setOverlayMounted] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const overlayRef = useRef(null);
   const firstLinkRef = useRef(null);
 
@@ -29,7 +31,19 @@ const Navbar = () => {
     };
   }, [isOpenOverlay]);
 
-  const closeOverlay = () => setIsOpenOverlay(false);
+  const closeOverlay = () => {
+    setIsClosing(true);
+    setIsOpenOverlay(false);
+    setTimeout(() => {
+      setOverlayMounted(false);
+      setIsClosing(false);
+    }, 320);
+  };
+
+  const openOverlay = () => {
+    setOverlayMounted(true);
+    setTimeout(() => setIsOpenOverlay(true), 16);
+  };
 
   const handleNavClick = (href) => (e) => {
     e.preventDefault();
@@ -42,7 +56,7 @@ const Navbar = () => {
   return (
     <div className="w-full absolute inset-0 z-30 pointer-events-none">
       <div className="container flex justify-between items-center py-4 pointer-events-auto">
-        <a href="#hero" className="font-semibold text-lg lg:text-2xl 2xl:text-3xl">Rupz Web</a>
+        <a href="#hero" className="font-semibold text-lg lg:text-2xl 2xl:text-3xl">Turbash</a>
 
         <nav className="hidden sm:flex items-center gap-12 text-sm lg:text-xl 2xl:text-2xl" aria-label="Primary">
           {NAV_ITEMS.map((item) => (
@@ -62,17 +76,32 @@ const Navbar = () => {
         <button
           aria-label={isOpenOverlay ? "Close menu" : "Open menu"}
           aria-expanded={isOpenOverlay}
-          className="sm:hidden p-2 rounded-md bg-white/5 backdrop-blur text-white"
-          onClick={() => setIsOpenOverlay((v) => !v)}
+          className="sm:hidden p-2 rounded-md bg-white/5 backdrop-blur text-white z-60"
+          onClick={() => {
+            if (overlayMounted) closeOverlay();
+            else openOverlay();
+          }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
-            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <g className={isOpenOverlay ? 'hamburger icon-open' : 'hamburger'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path className="line line1" d="M4 6h16" />
+              <path className="line line2" d="M4 12h16" />
+              <path className="line line3" d="M4 18h16" />
+            </g>
           </svg>
         </button>
       </div>
 
-      {isOpenOverlay && (
-        <div ref={overlayRef} role="dialog" aria-modal="true" className="fixed inset-0 z-40 bg-black/85 flex flex-col items-center justify-center gap-8">
+      {overlayMounted && (
+        <div
+          ref={overlayRef}
+          role="dialog"
+          aria-modal="true"
+          className={`fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center gap-8 pointer-events-auto overlay ${isOpenOverlay && !isClosing ? 'overlay--open' : ''} ${isClosing ? 'overlay--closing' : ''}`}
+          onClick={(e) => {
+            if (e.target === overlayRef.current) closeOverlay();
+          }}
+        >
           {NAV_ITEMS.map((item, i) => (
             <a
               key={item.href}

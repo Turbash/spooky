@@ -21,3 +21,15 @@
         @apply w-full max-w-[1600px] mx-auto px-12;
     }
 }
+
+.overlay { transform: translateY(100%); opacity: 0; transition: transform 320ms ease, opacity 320ms ease; }
+.overlay--open { transform: translateY(0%); opacity: 1; }
+.overlay--closing { transform: translateY(100%); opacity: 0; }
+
+.hamburger .line { transition: transform 260ms ease, opacity 260ms ease; transform-origin: center; }
+.hamburger.icon-open .line1 { transform: translateY(6px) rotate(45deg); }
+.hamburger.icon-open .line2 { opacity: 0; }
+.hamburger.icon-open .line3 { transform: translateY(-6px) rotate(-45deg); }
+
+.animate-fade-in { animation: fadeIn 280ms ease both; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
