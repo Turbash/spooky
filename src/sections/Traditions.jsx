@@ -1,18 +1,15 @@
 import React from 'react'
+import bgImg from '../assets/halloween-bg-extended.jpg'
 
 const Traditions = () => {
   return (
-    <section id="traditions" className="min-h-[60vh] py-16 px-6 sm:px-12 bg-black/60 text-white">
-      <div className="max-w-4xl mx-auto prose prose-invert">
-        <h2>Common Halloween Traditions</h2>
-        <ul>
-          <li>Trick-or-treating — children go door-to-door collecting candy.</li>
-          <li>Pumpkin carving — turning pumpkins into jack-o'-lanterns to ward off spirits.</li>
-          <li>Costume parties — dressing up as spooky or playful characters.</li>
-          <li>Decorations — homes lit with candles, spider webs, and themed props.</li>
-        </ul>
-      </div>
-    </section>
+    <div className='relative' id='traditions'>
+      <img src={bgImg} alt="" className='' />    
+      <div className='absolute bottom-1/3 right-[5%] max-w-[40%] md:max-w-xs lg:max-w-md 2xl:max-w-3xl text-[0.8rem] sm:text-xs md:text-2xl 2xl:text-4xl leading-4 sm:leading-5 md:leading-10 2xl:leading-18 bg-[#00000070] px-4 py-3 md:px-8 md:py-6 rounded-4xl'>
+        <h2 className='text-orange font-heading text-xl md:text-3xl 2xl:text-5xl mb-2 md:mb-4'>Halloween Traditions</h2>
+        <p>From carving jack-o'-lanterns to trick-or-treating, Halloween traditions blend ancient customs with modern fun.</p>
+      </div>    
+    </div>
   )
 }
 

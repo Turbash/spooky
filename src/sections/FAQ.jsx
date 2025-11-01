@@ -1,18 +1,15 @@
 import React from 'react'
+import bgImg from '../assets/halloween-bg-extended.jpg'
 
 const FAQ = () => {
   return (
-    <section id="faq" className="min-h-[50vh] py-16 px-6 sm:px-12 bg-black/60 text-white">
-      <div className="max-w-4xl mx-auto prose prose-invert">
-        <h2>FAQ</h2>
-        <h3>When is Halloween?</h3>
-        <p>Halloween is celebrated on October 31st each year.</p>
-        <h3>Where did trick-or-treating come from?</h3>
-        <p>Trick-or-treating evolved from traditions of guising and souling in medieval Europe, later merging with community-based candy-giving rituals.</p>
-        <h3>Is Halloween safe?</h3>
-        <p>With common-sense precautions like those listed in the Safety section, Halloween can be a safe and fun time for everyone.</p>
-      </div>
-    </section>
+    <div className='relative' id='faq'>
+      <img src={bgImg} alt="" className='' />    
+      <div className='absolute bottom-1/3 left-[5%] max-w-[40%] md:max-w-xs lg:max-w-md 2xl:max-w-3xl text-[0.8rem] sm:text-xs md:text-2xl 2xl:text-4xl leading-4 sm:leading-5 md:leading-10 2xl:leading-18 bg-[#00000070] px-4 py-3 md:px-8 md:py-6 rounded-4xl'>
+        <h2 className='text-orange font-heading text-xl md:text-3xl 2xl:text-5xl mb-2 md:mb-4'>Halloween FAQ</h2>
+        <p>Halloween is celebrated on October 31st. It evolved from ancient Celtic traditions and European customs into the modern celebration we know today.</p>
+      </div>    
+    </div>
   )
 }
 

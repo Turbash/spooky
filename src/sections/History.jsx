@@ -1,23 +1,17 @@
 import React from 'react'
+import bgImg from '../assets/halloween-bg-extended.jpg'
 
 const History = () => {
   return (
-  <section id="history" className="min-h-[60vh] py-16 px-6 sm:px-12 bg-linear-to-b from-black/60 via-transparent to-black/40 text-white">
-      <div className="max-w-4xl mx-auto prose prose-invert">
-        <h2>History of Halloween</h2>
+    <div className='relative' id='history'>
+      <img src={bgImg} alt="" className='' />    
+      <div className='absolute bottom-1/3 left-[5%] max-w-[40%] md:max-w-xs lg:max-w-md 2xl:max-w-3xl text-[0.8rem] sm:text-xs md:text-2xl 2xl:text-4xl leading-4 sm:leading-5 md:leading-10 2xl:leading-18 bg-[#00000070] px-4 py-3 md:px-8 md:py-6 rounded-4xl'>
+        <h2 className='text-orange font-heading text-xl md:text-3xl 2xl:text-5xl mb-2 md:mb-4'>History of Halloween</h2>
         <p>
-          Halloween has its origins in the ancient Celtic festival of Samhain, a time when people
-          believed the boundary between the living and the dead became thin. Over centuries,
-          traditions from religious observances, folk customs, and harvest festivals merged to form
-          the modern celebration we know today.
+          Halloween has its origins in the ancient Celtic festival of Samhain, when people believed the boundary between the living and the dead became thin.
         </p>
-        <p>
-          Through the Middle Ages and later with migrations to North America, Halloween adopted
-          new customs: trick-or-treating, carving pumpkins, and costume parties. These practices
-          evolved regionally and continue to change with modern culture.
-        </p>
-      </div>
-    </section>
+      </div>    
+    </div>
   )
 }
 
