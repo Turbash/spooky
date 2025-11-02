@@ -14,6 +14,14 @@ A spooky halloween themed website, made with three js, react fibre and gsap libr
 
 - A secret jumpscare
 
+## Demo
+
+https://github.com/user-attachments/assets/d352a0a7-131f-4e35-b5ee-926bcde5259a
+
+
+
+
+
 ## Requirements
 
 - A decent version of node and npm.
