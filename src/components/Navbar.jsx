@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
-  { label: "Demo", href: "#hero" },
-  { label: "Subscribe", href: "#cta" },
+  { label: "History", href: "#history"},
 ];
 
 const Navbar = () => {
@@ -65,7 +64,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#"
+            href="https://github.com/Turbash/spooky"
             onClick={(e) => e.preventDefault()}
             className="text-orange px-5 py-2 border-2 bg-transparent border-orange rounded-full font-semibold hover:bg-orange hover:text-white transition"
           >
